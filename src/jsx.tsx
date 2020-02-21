@@ -1,13 +1,7 @@
 import React from 'react';
 import { ActionBar, SyntaxHighlighter } from '@storybook/components';
-import { styled } from '@storybook/theming';
 import copy from 'copy-to-clipboard';
 import { Listener } from './register';
-
-const Container = styled.div(({ theme }) => ({
-  padding: theme.layoutMargin
-}));
-
 
 interface JSXProps {
   active: boolean;
@@ -33,7 +27,7 @@ const JSX: React.FunctionComponent<JSXProps> = props => {
   const copyJsx = React.useCallback(() => copy(code), [code]);
 
   return props.active ? (
-    <Container>
+    <div>
       <SyntaxHighlighter language="jsx" format={false} >{code}</SyntaxHighlighter>
       <ActionBar
         actionItems={[
@@ -43,7 +37,7 @@ const JSX: React.FunctionComponent<JSXProps> = props => {
           }
         ]}
       />
-    </Container>
+    </div>
   ) : null;
 };
 
